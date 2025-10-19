@@ -41,30 +41,3 @@ The heuristic function evaluates the board by analyzing all possible windows of 
 
 
 
-🎯 **AI chơi game Connect Four sử dụng thuật toán Alpha-Beta Pruning**
-
-## 📋 Giới thiệu
-
-Dự án này triển khai trò chơi Connect Four (4 nước liên tiếp) với AI sử dụng thuật toán Alpha-Beta Pruning để tìm nước đi tối ưu. AI có thể đánh bại người chơi ở độ khó trung bình đến cao.
-
-## 🧠 Ý tưởng thuật toán
-
-### Alpha-Beta Pruning
-
-Alpha-Beta Pruning là một thuật toán tối ưu hóa của Minimax, giúp giảm đáng kể số lượng nút cần duyệt trong cây trò chơi:
-
-- **Alpha**: Giá trị tốt nhất mà người chơi maximizing (MAX) có thể đảm bảo
-- **Beta**: Giá trị tốt nhất mà người chơi minimizing (MIN) có thể đảm bảo
-- **Pruning**: Cắt bỏ các nhánh không thể ảnh hưởng đến quyết định cuối cùng
-
-### Hàm đánh giá (Heuristic Function)
-
-Hàm heuristic được thiết kế để đánh giá trạng thái bàn cờ:
-
-```python
-def evaluate_window(window, player_id):
-    # Đánh giá cửa sổ 4 ô theo các tiêu chí:
-    # - 4 nước liên tiếp: +10000 điểm (thắng)
-    # - 3 nước + 1 trống: +100 điểm (đe dọa thắng)
-    # - 2 nước + 2 trống: +10 điểm (tiềm năng)
-    # - Chặn đối thủ 3 nước: -1000 điểm (phòng thủ)
